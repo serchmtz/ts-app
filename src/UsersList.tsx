@@ -11,7 +11,7 @@ export class UserList extends Component<UserListProps> {
             <>
                 {
                     users.map((user, i) =>{
-                        return <UserCard name={user.nombre} email={user.correo} key={i} />
+                        return <UserCard id={user.id} name={user.nombre} email={user.correo} key={i} />
                     })
                 }
             </>

@@ -1,7 +1,8 @@
 interface User {
-  id?: string;
+  id: string;
   nombre: string;
   correo: string;
   tipo: number;
   semestre: number;
+  photo?: string;
 }

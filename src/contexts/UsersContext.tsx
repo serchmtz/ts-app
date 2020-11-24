@@ -30,7 +30,7 @@ class UsersProvider extends Component<{}, UsersProviderState> {
         this.remove = this.remove.bind(this);
         this.state = {
             usersRef: databaseRef.firestore().collection('/users'),
-            users: new Array<User>(),
+            users: [],
             create: this.create,
             read:   this.read,
             update: this.update,
