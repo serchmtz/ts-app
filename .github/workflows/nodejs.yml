@@ -1,0 +1,28 @@
+name: Format Code
+
+on:
+  pull_request:
+    branches:
+      - master
+      - main
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          # Make sure the actual branch is checked out when running on pull requests
+          ref: ${{ github.head_ref }}
+
+      - name: Install Dependencies
+        run: npm install
+      - name: Lint & Format
+        run: npm run format
+      - run: git status
+      - uses: mikeal/publish-to-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
