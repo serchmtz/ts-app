@@ -19,8 +19,10 @@ jobs:
       - name: Lint & Format
         run: npm run format
       - run: git status
-      - uses: nelonoel/branch-name@v1
+      - run: echo $GITHUB_REF
+      - run: echo $GITHUB_HEAD_REF
       - uses: mikeal/publish-to-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH_NAME: 'test'
 
